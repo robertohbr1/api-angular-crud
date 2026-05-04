@@ -7,6 +7,7 @@ using ProjetoOff.Api.Infrastructure.Data;
 using ProjetoOff.Api.Infrastructure.Security;
 using ProjetoOff.Api.Features.Products;
 using ProjetoOff.Api.Features.Clients;
+using ProjetoOff.Api.Features.Suppliers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -68,6 +69,7 @@ app.UseAuthorization();
 // 6. Feature Endpoints
 app.MapProductEndpoints();
 app.MapClientEndpoints();
+app.MapSupplierEndpoints();
 
 // Auth endpoint for testing
 app.MapPost("/api/auth/login", (string username, ISecurityService security) => 
