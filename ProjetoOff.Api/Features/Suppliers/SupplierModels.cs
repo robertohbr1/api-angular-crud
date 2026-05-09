@@ -2,9 +2,9 @@ using FluentValidation;
 
 namespace ProjetoOff.Api.Features.Suppliers;
 
-public record CreateSupplierRequest(string Name, string RazaoSocial, string Cnpj, string Address, string Phone, string Uf, string Cna);
-public record UpdateSupplierRequest(string Name, string RazaoSocial, string Cnpj, string Address, string Phone, string Uf, string Cna);
-public record SupplierResponse(Guid Id, string Name, string RazaoSocial, string Cnpj, string Address, string Phone, string Uf, string Cna, DateTime CreatedAt);
+public record CreateSupplierRequest(string Name, string RazaoSocial, string Cnpj, string Address, string Phone, string Uf, string Cnae);
+public record UpdateSupplierRequest(string Name, string RazaoSocial, string Cnpj, string Address, string Phone, string Uf, string Cnae);
+public record SupplierResponse(Guid Id, string Name, string RazaoSocial, string Cnpj, string Address, string Phone, string Uf, string Cnae, DateTime CreatedAt);
 
 public class CreateSupplierValidator : AbstractValidator<CreateSupplierRequest>
 {
@@ -15,6 +15,6 @@ public class CreateSupplierValidator : AbstractValidator<CreateSupplierRequest>
         RuleFor(x => x.Cnpj).NotEmpty().Length(14); // Assuming raw numbers
         RuleFor(x => x.Phone).NotEmpty();
         RuleFor(x => x.Uf).NotEmpty().Length(2);
-        RuleFor(x => x.Cna).NotEmpty();
+        RuleFor(x => x.Cnae).NotEmpty();
     }
 }

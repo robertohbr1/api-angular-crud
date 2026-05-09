@@ -8,6 +8,8 @@ using ProjetoOff.Api.Infrastructure.Security;
 using ProjetoOff.Api.Features.Products;
 using ProjetoOff.Api.Features.Clients;
 using ProjetoOff.Api.Features.Suppliers;
+using ProjetoOff.Api.Features.Ufs;
+using ProjetoOff.Api.Features.Cnaes;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -70,6 +72,8 @@ app.UseAuthorization();
 app.MapProductEndpoints();
 app.MapClientEndpoints();
 app.MapSupplierEndpoints();
+app.MapUfEndpoints();
+app.MapCnaeEndpoints();
 
 // Auth endpoint for testing
 app.MapPost("/api/auth/login", (string username, ISecurityService security) => 

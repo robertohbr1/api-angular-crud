@@ -32,7 +32,7 @@ public static class SupplierEndpoints
                 Address = request.Address,
                 Phone = request.Phone,
                 Uf = request.Uf,
-                Cna = request.Cna
+                Cnae = request.Cnae
             };
 
             db.Suppliers.Add(supplier);
@@ -52,7 +52,7 @@ public static class SupplierEndpoints
             supplier.Address = request.Address;
             supplier.Phone = request.Phone;
             supplier.Uf = request.Uf;
-            supplier.Cna = request.Cna;
+            supplier.Cnae = request.Cnae;
 
             await db.SaveChangesAsync();
             return Results.NoContent();
@@ -70,5 +70,5 @@ public static class SupplierEndpoints
     }
 
     private static SupplierResponse ToResponse(Supplier s) => 
-        new(s.Id, s.Name, s.RazaoSocial, s.Cnpj, s.Address, s.Phone, s.Uf, s.Cna, s.CreatedAt);
+        new(s.Id, s.Name, s.RazaoSocial, s.Cnpj, s.Address, s.Phone, s.Uf, s.Cnae, s.CreatedAt);
 }

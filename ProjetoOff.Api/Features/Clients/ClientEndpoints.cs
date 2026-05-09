@@ -29,7 +29,9 @@ public static class ClientEndpoints
                 Name = request.Name,
                 Cnpj = request.Cnpj,
                 Address = request.Address,
-                Phone = request.Phone
+                Phone = request.Phone,
+                Uf = request.Uf,
+                Cnae = request.Cnae
             };
 
             db.Clients.Add(client);
@@ -47,6 +49,8 @@ public static class ClientEndpoints
             client.Cnpj = request.Cnpj;
             client.Address = request.Address;
             client.Phone = request.Phone;
+            client.Uf = request.Uf;
+            client.Cnae = request.Cnae;
 
             await db.SaveChangesAsync();
             return Results.NoContent();
@@ -64,5 +68,5 @@ public static class ClientEndpoints
     }
 
     private static ClientResponse ToResponse(Client c) => 
-        new(c.Id, c.Name, c.Cnpj, c.Address, c.Phone, c.CreatedAt);
+        new(c.Id, c.Name, c.Cnpj, c.Address, c.Phone, c.Uf, c.Cnae, c.CreatedAt);
 }
